@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masai News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        font-family: "Roboto", sans-serif;
+        width: 1250px;
+        margin: auto;
+        height: auto;
+      }
+      .head {
+        width: 100%;
+        height: 50px;
+
+        margin-top: 60px;
+        position: relative;
+        text-align: center;
+      }
+
+      .head > h1 {
+        margin: 0;
+        font-size: 1.9rem;
+        font-weight: 900;
+      }
+      .head > h1 > span {
+        color: red;
+      }
+
+      .head > div > img {
+        width: 80px;
+        left: 645px;
+        top: 32px;
+        position: absolute;
+      }
+      .boxes {
+        width: 100%;
+        height: 480px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-top: 40px;
+      }
+      .card-info {
+        width: auto;
+        height: 380px;
+        padding: 30px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 14px;
+      }
+      .card-info:hover {
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      .card {
+        width: 330px;
+        height: auto;
+      }
+      .card > .date {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        color: #1882ce;
+      }
+      .card h3 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 900;
+      }
+      .image {
+        width: 100%;
+        height: 200px;
+      }
+      .image > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <h1>Masai in <span>News</span></h1>
+        <div>
+          <img
+            src="https://www.masaischool.com/images/new-homepage/yellow-vector.svg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="boxes">
+        <div class="card-info">
+          <div class="card">
+            <div class="image">
+              <img
+                src="https://masai-website-images.s3.ap-south-1.amazonaws.com/PR_Article_Prateek_Shukla_Gen_AI_92324e2d6b.jpeg"
+                alt=""
+              />
+            </div>
+            <p class="date">28 Aug 2023</p>
+
+            <h3 class="news-heading">Empowering Education Through GenAI</h3>
+
+            <p>
+              In the dynamic landscape of today’s job market, Gen AI plays a
+              significant ...
+            </p>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card">
+            <div class="image">
+              <img
+                src="https://masai-website-images.s3.ap-south-1.amazonaws.com/PR_Thungy_1_420b226e5b.webp"
+                alt=""
+              />
+            </div>
+            <p class="date">05 May 2023</p>
+
+            <h3 class="news-heading">
+              Masai School targets fivefold revenue growth in three years
+            </h3>
+
+            <p>
+              Masai School's growth plans indicate that the demand for skilled
+              workers in...
+            </p>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card">
+            <div class="image">
+              <img
+                src="https://masai-website-images.s3.ap-south-1.amazonaws.com/PR_Thingy_2_f2c52e6fcf.webp"
+                alt=""
+              />
+            </div>
+            <p class="date">25 May 2023</p>
+
+            <h3 class="news-heading">
+              Beyond Degrees: Embracing Alternative Credentialing and
+              Micro-learning in Tech Recruitment
+            </h3>
+
+            <p>
+              The enduring presence of alternative credentialing and
+              microlearning indi...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
