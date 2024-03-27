@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid-Time-Table</title>
+    <style>
+      .container {
+        width: 1000px;
+        margin: auto;
+      }
+      .container > .head {
+        text-align: center;
+      }
+      .boxes {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+      }
+      .box {
+        height: 40px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        font-weight: bolder;
+        font-size: 1.2rem;
+      }
+      .box:nth-child(odd) {
+        background: rgb(253, 217, 241);
+      }
+      .box:nth-child(even) {
+        background: rgb(242, 242, 196);
+      }
+      .card-1 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+      .card-10 {
+        width: 100%;
+        grid-column-start: 1;
+        grid-column-end: 7;
+        justify-content: start;
+      }
+      .day {
+        color: blue;
+      }
+      .break {
+        color: rgb(255, 64, 0);
+      }
+      .time {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <h2>Weekly Schedule</h2>
+      </div>
+      <div class="boxes">
+        <div class="box day card-1">Monday</div>
+        <div class="box day">Tuesday</div>
+        <div class="box day">Wednesday</div>
+        <div class="box day">Thursday</div>
+        <div class="box day">Friday</div>
+        <div class="box time">08:00</div>
+        <div class="box">Marathi</div>
+        <div class="box">Marathi</div>
+        <div class="box">Marathi</div>
+        <div class="box">Marathi</div>
+        <div class="box">Marathi</div>
+        <div class="box time">09:00</div>
+        <div class="box">English</div>
+        <div class="box">English</div>
+        <div class="box">English</div>
+        <div class="box">English</div>
+        <div class="box">English</div>
+        <div class="box time">10:00</div>
+        <div class="box break">Break</div>
+        <div class="box break">Break</div>
+        <div class="box break">Break</div>
+        <div class="box break">Break</div>
+        <div class="box break">Break</div>
+        <div class="box time">11:00</div>
+        <div class="box">Hindi</div>
+        <div class="box">Hindi</div>
+        <div class="box">Hindi</div>
+        <div class="box">Hindi</div>
+        <div class="box">Hindi</div>
+        <div class="box time">12:00</div>
+        <div class="box">Science</div>
+        <div class="box">Science</div>
+        <div class="box">Science</div>
+        <div class="box">Science</div>
+        <div class="box">Science</div>
+        <div class="box time">13:00</div>
+        <div class="box">PT</div>
+        <div class="box">PT</div>
+        <div class="box">PT</div>
+        <div class="box">PT</div>
+        <div class="box">PT</div>
+        <div class="box time">14:00</div>
+        <div class="box break">Break</div>
+        <div class="box break">Break</div>
+        <div class="box break">Break</div>
+        <div class="box break">Break</div>
+        <div class="box break">Break</div>
+        <div class="box time">15:00</div>
+        <div class="box">Computer S.</div>
+        <div class="box">Computer S.</div>
+        <div class="box">Computer S.</div>
+        <div class="box">Computer S.</div>
+        <div class="box">Computer S.</div>
+        <div class="box time">16:00</div>
+        <div class="box">Geography</div>
+        <div class="box">Geography</div>
+        <div class="box">Geography</div>
+        <div class="box">Geography</div>
+        <div class="box">Geography</div>
+        <div class="box card-10">Note:</div>
+      </div>
+    </div>
+  </body>
+</html>
