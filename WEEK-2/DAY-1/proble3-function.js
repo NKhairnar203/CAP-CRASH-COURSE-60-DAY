@@ -1,3 +1,5 @@
+// Problem 3: Use the same function to print Non-Primes from 2 to a given limit
+
 // Problem 2: Use the above function to print the Primes from 2 to a given limit
 
 function isPrime(num) {
@@ -20,13 +22,12 @@ function isPrime(num) {
   
 }
 
-var limit = 50;
+var limit = 100;
 for(let i=2;i<=limit;i++){
   var result = isPrime(i);
-  if(result == true){
-    console.log(i + " is prime");
-  }else{
-    console.log(i + " is not prime");
+  if(result != true){
+     console.log(i + " is not prime");
   }
 }
+
 
