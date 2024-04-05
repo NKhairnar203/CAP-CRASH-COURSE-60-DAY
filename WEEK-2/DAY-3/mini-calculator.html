@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <input id="no1" type="text" placeholder="Enter First Number" />
+      <input id="no2" type="text" placeholder="Enter Second Number" />
+      <div>
+        <button id="add">Add</button>
+        <button id="sub">Subtract</button>
+        <button id="mult">Multiply</button>
+        <button id="div">Divide</button>
+      </div>
+      <div id="output">
+        <p>Output:</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    let no1 = document.getElementById("no1");
+    let no2 = document.getElementById("no2");
+    let addBtn = document.getElementById("add");
+    let subBtn = document.querySelector("#sub");
+    let multBtn = document.getElementById("mult");
+    let divBtn = document.getElementById("div");
+    let output = document.getElementById("output");
+
+    addBtn.addEventListener("click", function () {
+      let addition = Number(no1.value) + Number(no2.value);
+      let h3 = document.createElement("h3");
+      h3.innerText = `The addition is : ${addition}`;
+      output.append(h3);
+      alert(`The addition Is : ${addition}`)
+    });
+    subBtn.addEventListener("click", function () {
+      let substraction = Number(no1.value) - Number(no2.value);
+      let h3 = document.createElement("h3");
+      h3.innerText = `The Substraction is : ${substraction}`;
+      output.append(h3);
+      alert(`The Substraction Is : ${substraction}`)
+    });
+    multBtn.addEventListener("click", function () {
+      let Multiply = Number(no1.value) * Number(no2.value);
+      let h3 = document.createElement("h3");
+      h3.innerText = `The Multiplication is : ${Multiply}`;
+      output.append(h3);
+      alert(`The Multiplication Is : ${Multiply}`)
+    });
+    divBtn.addEventListener("click", function () {
+      let divide = Number(no1.value) / Number(no2.value);
+      let h3 = document.createElement("h3");
+      h3.innerText = `The Divide is : ${divide}`;
+      output.append(h3);
+      alert(`The Divide Is : ${divide}`)
+    });
+  </script>
+</html>
