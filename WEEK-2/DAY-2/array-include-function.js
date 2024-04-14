@@ -1,4 +1,3 @@
-// Write a custom function that has the same behavior of inbuilt Array Includes Function
 
 // Write a custom function that has the same behavior of inbuilt Array Includes Function
 
