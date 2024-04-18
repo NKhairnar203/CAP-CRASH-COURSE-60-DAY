@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      div {
+        margin: 20px auto;
+        width: 300px;
+        text-align: center;
+      }
+      input[type="text"] {
+        width: 60px;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="input1" placeholder="Hours" />
+      <input type="text" id="input2" placeholder="Minutes" />
+      <input type="text" id="input3" placeholder="Seconds" />
+      <button onclick="startTime()">Start</button>
+      <button onclick="pauseTime()">Pause</button>
+      <button onclick="resetTime()">Reset</button>
+    </div>
+  </body>
+  <script>
+    let timeRem;
+    let interVal;
+    function startTime() {
+      let hours = Number(document.getElementById("input1").value);
+      let minutes = Number(document.getElementById("input2").value);
+      let seconds = Number(document.getElementById("input3").value);
+      console.log(hours, minutes);
+      timeRem = hours * 3600 + minutes * 60 + seconds;
+      console.log(timeRem);
+
+      interVal = setInterval(function () {
+        timeRem--;
+        console.log(timeRem);
+        let hrs = Math.floor(timeRem / 3600);
+        let mins = Math.floor((timeRem % 3600) / 60);
+        let secs = timeRem % 60;
+
+        document.getElementById("input1").value = hrs;
+        document.getElementById("input2").value = mins;
+        document.getElementById("input3").value = secs;
+
+        if (timeRem <= 0) {
+          clearInterval(interVal);
+          interVal = null;
+          alert("Time up !!!");
+        }
+      }, 1000);
+    }
+
+    function pauseTime() {
+      clearInterval(interVal);
+      interVal = null;
+    }
+
+    function resetTime() {
+      timeRem = 0;
+      document.getElementById("input1").value = 0;
+      document.getElementById("input2").value = 0;
+      document.getElementById("input3").value = 0;
+      clearInterval(interVal);
+      interVal = null;
+    }
+  </script>
+</html>
