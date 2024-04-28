@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.top-nav {
+}
+.top-nav h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.top-nav div {
+  margin-top: 30px;
+  display: flex;
+  height: 20px;
+}
+
+.main-container {
+  margin-top: 20px;
+}
+table {
+  background-color: rgb(222, 222, 222);
+}
+table > tbody{
+  background-color: aliceblue;
+}
+table > thead > tr > th:nth-child(1) {
+  width: 100px;
+  text-align: start;
+
+  border: 1px solid;
+}
+table > thead > tr > th:nth-child(2) {
+  width: 260px;
+  text-align: start;
+
+  border: 1px solid;
+}
+table > thead > tr > th:nth-child(3) {
+  width: 140px;
+  text-align: start;
+  border: 1px solid;
+}
+table > thead > tr > th:nth-child(4) {
+  width: 180px;
+  text-align: start;
+  border: 1px solid;
+}
+table > thead > tr > th:nth-child(5) {
+  width: 150px;
+  border: 1px solid;
+}
