@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#btn-div{
+  text-align: center;
+  padding: 30px;
+}
+
+#btn{
+  width: 150px;
+  height: 50px;
+  background-color: red;
+  color: rgb(255, 255, 255);
+  font-weight: 800;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+#btn:hover{
+  background-color: black;
+  cursor: pointer;
+}
+
+#container {
+  width: 80%;
+  height: auto;
+  display: grid;
+  margin: auto;
+  margin-top:40px ;
+  grid-template-columns: repeat(3, 170px);
+  gap: 25px;
+  padding: 30px;
+  justify-content: center;
+}
+
+#container > div {
+  text-align: center;
+  padding-bottom: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#container > div img{
+  width: 100%;
+}
