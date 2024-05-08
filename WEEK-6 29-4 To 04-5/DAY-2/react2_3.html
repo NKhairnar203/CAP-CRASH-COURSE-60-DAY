@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic List Rendering</title>
+    <style>
+      .image-box{
+        border: 1px solid red;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      let root = document.getElementById("root");
+      let reactR = ReactDOM.createRoot(root);
+
+      function Gallary() {
+        
+        function Image({ img1, img2 }) {
+          let style = {
+            width : "300px",
+            margin:"30px"
+
+          }
+          return (
+            <>
+              <img style= {style} src={img1} />
+              <img style= {style} src={img2} />
+              <img style= {style} src="" />
+            </>
+          );
+        }
+        
+        return (
+          
+          <>
+            <h1>Gallary</h1>
+            <Image id="image-box"
+              img1={
+                "https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=1779&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              }
+              img2={"https://images.unsplash.com/photo-1574169207511-e21a21c8075a?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
+            />
+
+           
+          </>
+        );
+      }
+
+      reactR.render(<Gallary />);
+    </script>
+  </body>
+</html>
