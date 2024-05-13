@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .todo-container {
+        width: 400px;
+
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .todo-container input[type="text"] {
+        width: calc(100% - 80px);
+        padding: 8px;
+        margin-right: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      .todo-container button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        margin-right: 30px;
+        cursor: pointer;
+      }
+
+      .todo-item {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        position: relative;
+      }
+
+      .todo-item input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      .todo-item button {
+        margin-left: 10px;
+
+        background-color: #dc3545;
+      }
+      select {
+        margin-top: 10px;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+      }
+
+      option {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    let root = document.getElementById("root");
+    let reactRoot = ReactDOM.createRoot(root);
+
+    const App = () => {
+      const [todo, setTodo] = React.useState([]);
+      const [newTodo, setNewTodo] = React.useState("");
+
+      const addTodo = () => {
+        if (todo.length === 0) {
+          alert("Please Write Your Task....");
+        } else {
+          setTodo([
+            ...todo,
+            { id: Date.now(), text: newTodo, completed: false },
+          ]);
+          setNewTodo("");
+        }
+      };
+
+      function toggleTodo(id) {
+        setTodo((prevTodo) =>
+          prevTodo.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+          )
+        );
+      }
+
+      function removeTodo(id) {
+        setTodo((prevTodo) => prevTodo.filter((todo) => todo.id !== id));
+      }
+
+      function handleFilter(e) {
+        if (e.target.value === "All") {
+          setTodo(todo);
+        }
+        if (e.target.value === "Active") {
+          setTodo(todo.filter((todo) => todo.completed === false));
+        }
+        if (e.target.value === "Completed") {
+          setTodo(todo.filter((todo) => todo.completed === true));
+        }
+      }
+
+      console.log(todo);
+      return (
+        <>
+          <div className="todo-container">
+            <input
+              type="text"
+              value={newTodo}
+              onChange={(e) => setNewTodo(e.target.value)}
+              placeholder="Enter your todo"
+            />
+            <button onClick={addTodo}>Add TODO</button>
+            <select onChange={(e) => handleFilter(e)} name="" id="">
+              <option value="">Select Option</option>
+              <option value="All"> All</option>
+              <option value="Active"> Active</option>
+              <option value="Completed"> Completed</option>
+            </select>
+            <ul>
+              {todo.map((ele, i) => (
+                <li className="todo-item" key={ele.id}>
+                  <input
+                    type="checkbox"
+                    checked={ele.completed}
+                    onChange={() => toggleTodo(ele.id)}
+                  />
+                  <span>{ele.text}</span>
+                  <button onClick={() => removeTodo(ele.id)}>Delete</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      );
+    };
+
+    reactRoot.render(<App />);
+  </script>
+</html>
