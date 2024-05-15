@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+      .hobby-form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .hobby-field {
+        margin-bottom: 10px;
+      }
+
+      .remove-button {
+        margin-left: 5px;
+        background-color: #ff6666;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .add-button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
+      .submit-button {
+        background-color: #008cba;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
+      .add;
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    let root = document.getElementById("root");
+    let reactRoot = ReactDOM.createRoot(root);
+
+    function HobbyForm() {
+      const [hobbie, setHobbie] = React.useState([""]);
+
+      const handleChange = (index, event) => {
+        const newHobbie = [...hobbie];
+        newHobbie[index] = event.target.value;
+        setHobbies(newHobbie);
+      };
+
+      const addHobby = () => {
+        setHobbie([...hobbie, ""]);
+      };
+
+      const removeHobby = (index) => {
+        const newHobbie = [...hobbie];
+        newHobbie.splice(index, 1);
+        setHobbie(newHobbie);
+      };
+
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(hobbie);
+      };
+
+      return (
+        <form onSubmit={handleSubmit} className="hobby-form">
+          {hobbie.map((hobby, index) => (
+            <div key={index} className="hobby-field">
+              <input
+                type="text"
+                placeholder="Enter hobby"
+                value={hobby}
+                onChange={(event) => handleChange(index, event)}
+              />
+              {index !== 0 && (
+                <button
+                  type="button"
+                  onClick={() => removeHobby(index)}
+                  className="remove-button"
+                >
+                  Remove
+                </button>
+              )}
+            </div>
+          ))}
+          <button type="button" onClick={addHobby} className="add-button">
+            Add Hobby
+          </button>
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
+        </form>
+      );
+    }
+
+    reactRoot.render(<HobbyForm />);
+  </script>
+</html>
