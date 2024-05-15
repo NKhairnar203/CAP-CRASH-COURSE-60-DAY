@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+      .user-search-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+      input[type="text"] {
+        width: 70%;
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+      button:disabled {
+        background: #5b6d7f;
+        cursor: not-allowed;
+      }
+
+      .user-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .user-card {
+        width: 200px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .user-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: block;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    let root = document.getElementById("root");
+    let reactRoot = ReactDOM.createRoot(root);
+
+    const UserProfile = () => {
+      let [user, setUser] = React.useState([]);
+      let [findUser, setFindUser] = React.useState("");
+      
+
+      
+
+      React.useEffect(() => {
+        let fetch = setTimeout(async () => {
+          try {
+            let response = await axios.get(
+              `https://reqres.in/api/users`
+            );
+            setUser(response.data.data);
+          } catch (error) {
+            console.log(error);
+          }
+        }, 500);
+        return () => clearTimeout(fetch);
+      }, [findUser]);
+
+
+      const UserCard = () => {
+        return (
+          <div className="user-list">
+            {user.map((ele, i) => (
+              <div key={i} className="user-card">
+                <img
+                  src={ele.avatar}
+                  alt="User avatar"
+                  className="user-avatar"
+                />
+                <h4>
+                  Name: {ele.first_name} {ele.last_name}
+                </h4>
+                <p>E-mail: {ele.email}</p>
+              </div>
+            ))}
+          </div>
+        );
+      };
+
+      function userSearch() {
+        if (findUser === "") {
+          alert("Enter User...");
+        } else {
+          let data = user.filter(
+            (item) => item.first_name.toLowerCase() === findUser.toLowerCase()
+          );
+          return setUser(data);
+        }
+      }
+      
+      return (
+        <>
+          <div className="user-search-container">
+            <input
+              type="text"
+              value={findUser}
+              placeholder="Search Users..."
+              onChange={(e) => setFindUser(e.target.value)}
+            />
+            <button onClick={userSearch}>Search</button>
+
+            <UserCard />
+          </div>
+        </>
+      );
+    };
+
+    reactRoot.render(<UserProfile />);
+  </script>
+</html>
